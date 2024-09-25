@@ -1,9 +1,12 @@
 import './App.css';
 import {useBootPlayground} from './useBootPlayground';
+import {MountDescriptor, PlaygroundClient} from "@wp-playground/client";
 
-export function App() {
-    const { playground, iframeRef } = useBootPlayground();
+let p: PlaygroundClient;
 
+export function App({mountDescriptor}: {mountDescriptor: MountDescriptor}) {
+    const { playground, iframeRef } = useBootPlayground({mountDescriptor});
+    p = playground;
     return (
         <iframe
             title="playground"
